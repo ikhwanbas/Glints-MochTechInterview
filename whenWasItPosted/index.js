@@ -6,34 +6,53 @@ const whenWasItPosted = date => {
   const inputYear = inputDate.getFullYear()
   const inputsDate = inputDate.getDate()
 
-  console.log(inputYear)
-  console.log(inputMonth)
-
   const currentYear = new Date().getFullYear()
   const currentMonth = new Date().getMonth() + 1
   const currentDate = new Date().getDate()
 
   if (currentYear == inputYear) {
+
     if (currentMonth == inputMonth) {
-      const results = currentDate - inputsDate + ' day ago'
-      return results
+      const a = currentDate - inputsDate
+
+      if (a < 7) {
+        return a + ' day ago'
+      } else {
+        const result = Math.floor(a / 7)
+        return result + ' week ago'
+      }
+
+    } else if (inputMonth == (currentMonth - 1)) {
+      const a = currentDate + 30 - inputsDate
+
+      if (a <= 30) {
+
+        if (a < 7) {
+          return a + ' day ago'
+        } else {
+          const result = Math.floor(a / 7)
+          return result + ' week ago'
+        }
+
+      } else {
+        const result = currentMonth - inputMonth
+        return result + ' month ago'
+      }
+
+    } else {
+      const result = currentMonth - inputMonth
+      return result + ' month ago'
     }
 
-  } else if (currentMonth == inputMonth) {
-
-
-
   } else {
-    const result = currentMonth - inputMonth + ' month ago'
-
+    const result = currentYear - inputYear + ' year ago'
     return result
   }
-
 }
 
 
 // do not change this code below
-const test = (testCase, result) => console.log(testCase === result);
+const test = (testCase, result) => console.log(testCase == result);
 
 test(whenWasItPosted("3 January 2020"), '11 month ago')
 test(whenWasItPosted("26 November 2020"), '2 week ago')
