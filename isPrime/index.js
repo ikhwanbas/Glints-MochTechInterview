@@ -1,6 +1,14 @@
 const isPrime = num => {
   // do code here
-
+  console.log(num)
+  for (var i = 2; i < num; i++)
+    if (num % i === 0) {
+      return `${num} IS A PRIME`
+    } else if (num <= 1) {
+      return `${num} IS NOT A PRIME`
+    } else {
+      return `$num IS NOT A PRIME`
+    }
 }
 
 // do not change this code below
