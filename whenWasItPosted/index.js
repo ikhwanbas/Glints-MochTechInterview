@@ -36,8 +36,10 @@ console.log(whenWasItPosted("12 January 2021"))
 // do not change this code below
 const test = (testCase, result) => console.log(testCase == result);
 
-// test(whenWasItPosted("3 January 2020"), '11 month ago')
-// test(whenWasItPosted("26 November 2020"), '2 week ago')
-// test(whenWasItPosted("11 December 2020"), '3 day ago')
-// test(whenWasItPosted("2 December 2019"), '1 year ago')
-// test(whenWasItPosted("24 October 2000"), '20 year ago')
+
+// You need to adjust this test case result because the value is changed based on the current date. 
+test(whenWasItPosted("3 January 2020"), '11 month ago')
+test(whenWasItPosted("26 November 2020"), '2 week ago')
+test(whenWasItPosted("11 December 2020"), '3 day ago')
+test(whenWasItPosted("2 December 2019"), '1 year ago')
+test(whenWasItPosted("24 October 2000"), '20 year ago')
