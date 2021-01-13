@@ -1,12 +1,21 @@
 const isPrime = num => {
-  // do code here
-  if (num <= 1) return `${num}` + ' IS NOT A PRIME'; // negatives
-  if (num % 2 == 0 && num > 2) return `${num}` + ' IS NOT A PRIME'; // even numbers
-  let s = Math.sqrt(num); // store the square to loop faster
-  for (let i = 3; i <= s; i++) { // start from 3, stop at the square, increment
-    if (num % i === 0) return `${num}` + ' IS NOT A PRIME'; // modulo shows a divisor was found
+
+  if (num <= 1) {
+    return `${num}` + ' IS NOT A PRIME'
+  } else if (num % 2 == 0 && num > 2) {
+    return `${num}` + ' IS NOT A PRIME'
+  } else {
+    let s = Math.sqrt(num)
+
+    for (let i = 3; i <= s; i++) {
+      if (num % i === 0) {
+        return `${num}` + ' IS NOT A PRIME'
+      }
+    }
+
+    return `${num}` + ' IS A PRIME';
   }
-  return `${num}` + ' IS A PRIME';
+
 }
 
 // do not change this code below
